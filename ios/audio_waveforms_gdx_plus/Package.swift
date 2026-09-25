@@ -4,22 +4,23 @@
 import PackageDescription
 
 let package = Package(
-    name: "audio_waveforms",
+    name: "audio_waveforms_gdx_plus",
     platforms: [
         .iOS("13.0")
     ],
     products: [
-        .library(name: "audio-waveforms", targets: ["audio_waveforms"])
+        .library(name: "audio-waveforms-gdx-plus", targets: ["audio_waveforms_gdx_plus"])
     ],
     dependencies: [
         .package(name: "FlutterFramework", path: "../FlutterFramework")
     ],
     targets: [
         .target(
-            name: "audio_waveforms",
+            name: "audio_waveforms_gdx_plus",
             dependencies: [
                 .product(name: "FlutterFramework", package: "FlutterFramework")
-            ]
+            ],
+            path: "Sources/audio_waveforms"
         )
     ]
 )

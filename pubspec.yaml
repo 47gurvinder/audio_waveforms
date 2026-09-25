@@ -1,12 +1,15 @@
-name: audio_waveforms
-description: A Flutter package that allow you to generate waveform while recording audio or from audio file.
-version: 2.0.2
-homepage: https://github.com/SimformSolutionsPvtLtd/audio_waveforms
-issue_tracker: https://github.com/SimformSolutionsPvtLtd/audio_waveforms/issues
+name: audio_waveforms_gdx_plus
+description: Community-maintained Flutter plugin for recording, playing, extracting, and displaying customizable audio waveforms.
+version: 2.1.0
+homepage: https://gurwinderdevx.com
+repository: https://github.com/47gurvinder/audio_waveforms
+issue_tracker: https://github.com/47gurvinder/audio_waveforms/issues
+funding:
+  - https://buymeacoffee.com/gurwinderdevx
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
-  flutter: ">=3.10.0"
+  sdk: ^3.12.0
+  flutter: ">=3.44.0"
 
 dependencies:
   flutter:
@@ -28,4 +31,3 @@ flutter:
         pluginClass: AudioWaveformsPlugin
       macos:
         pluginClass: AudioWaveformsPlugin
-

@@ -1,6 +1,17 @@
-# audio_waveforms_example
+# audio_waveforms_gdx_plus example
 
-Demonstrates how to use the audio_waveforms plugin.
+Demonstrates recording, playback, and waveform visualization with the
+[`audio_waveforms_gdx_plus`](https://pub.dev/packages/audio_waveforms_gdx_plus) plugin.
+
+Run the example from this directory:
+
+```sh
+flutter pub get
+flutter run
+```
+
+The example uses the package from the parent directory through a path dependency. For platform
+permissions and minimum deployment versions, see the package [installation guide](../doc/documentation.md#installation).
 
 ## Getting Started
 

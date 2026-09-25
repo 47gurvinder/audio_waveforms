@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-import '../../audio_waveforms.dart';
+import '../../audio_waveforms_gdx_plus.dart';
 import '../base/constants.dart';
 import '../base/platform_streams.dart';
 import '../base/player_identifier.dart';

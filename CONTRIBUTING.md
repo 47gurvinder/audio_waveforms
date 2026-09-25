@@ -24,9 +24,8 @@ please read these instructions carefully.
 
 ### New Features
 
-- If you'd like to add a feature to the library that doesn't already exist, feel free to describe
-  the feature in a new [GitHub issue].
-    - You can also join us on [GitHub Discussion] to discuss some initials thoughts.
+- If you'd like to add a feature to the library that doesn't already exist, describe it using the
+  [feature request form].
 - If you'd like to implement the new feature, please wait for feedback from the project maintainers
   before spending too much time writing the code. In some cases, enhancements may not align well
   with the project future development direction.
@@ -99,7 +98,7 @@ void deprecatedFeature() {}
 
 ### Open a pull request
 
-Go to the [pull request page of audio_waveforms][PRs] and in the top
+Go to the [pull request page of audio_waveforms_gdx_plus][PRs] and in the top
 of the page it will ask you if you want to open a pull request from your newly created branch.
 
 The title of the pull request should start with a [conventional commit] type.
@@ -133,7 +132,7 @@ Examples of PR titles:
 
 ## Maintainers
 
-These instructions are for the maintainers of audio_waveforms.
+These instructions are for the maintainers of audio_waveforms_gdx_plus.
 
 
 ### Merging a pull request
@@ -160,13 +159,13 @@ There are a few things to think about when doing a release:
 - Create a PR containing the updated changelog and `pubspec.yaml` files.
 
 
-[GitHub issue]: https://github.com/SimformSolutionsPvtLtd/audio_waveforms/issues/new
-[GitHub issues]: https://github.com/SimformSolutionsPvtLtd/audio_waveforms/issues/new
-[GitHub Discussion]: https://github.com/SimformSolutionsPvtLtd/audio_waveforms/discussions
+[GitHub issue]: https://github.com/47gurvinder/audio_waveforms/issues/new
+[GitHub issues]: https://github.com/47gurvinder/audio_waveforms/issues
+[feature request form]: https://github.com/47gurvinder/audio_waveforms/issues/new?template=feature_request.yml
 [style guide]: https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo
 [test writing guide]: https://docs.flutter.dev/cookbook/testing/unit/introduction
 [pubspec doc]: https://dart.dev/tools/pub/pubspec
 [conventional commit]: https://www.conventionalcommits.org
-[fork guide]: https://guides.github.com/activities/forking/#fork
-[PRs]: https://github.com/SimformSolutionsPvtLtd/audio_waveforms/pulls
+[fork guide]: https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project
+[PRs]: https://github.com/47gurvinder/audio_waveforms/pulls
 [gitmoji]: https://gist.github.com/parmentf/035de27d6ed1dce0b36a

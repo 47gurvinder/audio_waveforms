@@ -1,10 +1,10 @@
 # Overview
 
-A Flutter package that allows you to generate waveforms while recording audio in any file format supported by given encoders or from audio files. You can use gestures to scroll through the waveforms or seek any position while playing audio and style waveforms.
+`audio_waveforms_gdx_plus` is a community-maintained Flutter package that generates waveforms while recording audio in formats supported by the platform encoders or from audio files. You can use gestures to scroll through waveforms, seek during playback, and customize their appearance. It supports Android, iOS, and macOS.
 
 ## Preview
 
-![The example app running on mobile](https://raw.githubusercontent.com/SimformSolutionsPvtLtd/audio_waveforms/main/preview/demo_v2_0_0.gif)
+![The example app running on mobile](https://raw.githubusercontent.com/47gurvinder/audio_waveforms/main/preview/demo_v2_0_0.gif)
 
 ## Features
 
@@ -34,7 +34,7 @@ A Flutter package that allows you to generate waveforms while recording audio in
 
 ```yaml
 dependencies:
-  audio_waveforms: <latest-version>
+  audio_waveforms_gdx_plus: ^2.1.0
 ```
 
 ## Basic Implementation
@@ -43,7 +43,7 @@ dependencies:
 
 ```dart
 // Import the package
-import 'package:audio_waveforms/audio_waveforms.dart';
+import 'package:audio_waveforms_gdx_plus/audio_waveforms_gdx_plus.dart';
 
 // Create a recorder controller
 final recorderController = RecorderController();
@@ -58,7 +58,7 @@ if (recorderController.hasPermission) {
 
 // Display waveforms
 AudioWaveforms(
-  controller: recorderController,
+  recorderController: recorderController,
   size: Size(300, 50),
 )
 
@@ -86,7 +86,7 @@ await playerController.startPlayer();
 
 // Display waveforms
 AudioFileWaveforms(
-  controller: playerController,
+  playerController: playerController,
   size: Size(300, 50),
 )
 
@@ -113,7 +113,7 @@ The package offers extensive customization options for:
 
 # Installation
 
-To use the Audio Waveforms package in your Flutter project, follow these steps:
+To use `audio_waveforms_gdx_plus` in your Flutter project, follow these steps:
 
 ## 1. Add dependency to `pubspec.yaml`
 
@@ -121,7 +121,7 @@ Add the following dependency to your project's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  audio_waveforms: <latest-version>
+  audio_waveforms_gdx_plus: ^2.1.0
 ```
 
 ## 2. Install packages
@@ -138,10 +138,10 @@ flutter pub get
 
 #### Update minimum SDK version
 
-Change the minimum Android SDK version to 23 (or higher) in your `android/app/build.gradle` file:
+Change the minimum Android SDK version to 21 (or higher) in your `android/app/build.gradle` file:
 
 ```gradle
-minSdkVersion 23
+minSdkVersion 21
 ```
 
 #### Add permissions
@@ -195,7 +195,7 @@ platform :osx, '10.14'
 Add the import statement in your Dart files where you want to use Audio Waveforms:
 
 ```dart
-import 'package:audio_waveforms/audio_waveforms.dart';
+import 'package:audio_waveforms_gdx_plus/audio_waveforms_gdx_plus.dart';
 ```
 
 ## 5. Clean and rebuild
@@ -287,7 +287,7 @@ Add the `AudioWaveforms` widget to display recording waveforms:
 
 ```dart
 AudioWaveforms(
-  controller: recorderController,
+  recorderController: recorderController,
   size: Size(300, 50),
 )
 ```
@@ -326,7 +326,7 @@ Here's a complete basic recording example:
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:audio_waveforms/audio_waveforms.dart';
+import 'package:audio_waveforms_gdx_plus/audio_waveforms_gdx_plus.dart';
 
 class RecorderScreen extends StatefulWidget {
   const RecorderScreen({Key? key}) : super(key: key);
@@ -361,7 +361,7 @@ class _RecorderScreenState extends State<RecorderScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AudioWaveforms(
-              controller: recorderController,
+              recorderController: recorderController,
               size: Size(MediaQuery.of(context).size.width - 32, 80),
               waveStyle: WaveStyle(
                 waveColor: Colors.blue,
@@ -526,7 +526,7 @@ Add the `AudioFileWaveforms` widget to display playback waveforms:
 
 ```dart
 AudioFileWaveforms(
-  controller: playerController,
+  playerController: playerController,
   size: Size(300, 50),
 )
 ```
@@ -557,7 +557,7 @@ Here's a complete basic playback example:
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:audio_waveforms/audio_waveforms.dart';
+import 'package:audio_waveforms_gdx_plus/audio_waveforms_gdx_plus.dart';
 
 class PlayerScreen extends StatefulWidget {
   final String audioPath;
@@ -600,7 +600,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AudioFileWaveforms(
-              controller: playerController,
+              playerController: playerController,
               size: Size(MediaQuery.of(context).size.width - 32, 80),
               playerWaveStyle: PlayerWaveStyle(
                 fixedWaveColor: Colors.grey,
@@ -819,7 +819,7 @@ Customize the appearance of recording waveforms:
 
 ```dart
 AudioWaveforms(
-  controller: recorderController,
+  recorderController: recorderController,
   size: Size(MediaQuery.of(context).size.width, 100),
   shouldCalculateScrolledPosition: true,
   enableGesture: true,
@@ -855,7 +855,7 @@ Apply gradients to waveforms:
 import 'dart:ui' as ui;
 
 AudioWaveforms(
-  controller: recorderController,
+  recorderController: recorderController,
   size: Size(300, 100),
   waveStyle: WaveStyle(
     gradient: ui.Gradient.linear(
@@ -873,7 +873,7 @@ Show duration labels with customization:
 
 ```dart
 AudioWaveforms(
-  controller: recorderController,
+  recorderController: recorderController,
   size: Size(300, 150),
   waveStyle: WaveStyle(
     showDurationLabel: true,
@@ -897,7 +897,7 @@ Control gesture support for scrolling waveforms:
 
 ```dart
 AudioWaveforms(
-  controller: recorderController,
+  recorderController: recorderController,
   size: Size(300, 80),
   enableGesture: true, // Enable scrolling
   shouldCalculateScrolledPosition: true, // Track scroll position
@@ -945,7 +945,7 @@ Display the entire audio waveform fitted within the widget width:
 
 ```dart
 AudioFileWaveforms(
-  controller: playerController,
+  playerController: playerController,
   size: Size(300, 80),
   waveformType: WaveformType.fitWidth,
 )
@@ -975,7 +975,7 @@ Display waveforms that extend beyond the widget bounds:
 
 ```dart
 AudioFileWaveforms(
-  controller: playerController,
+  playerController: playerController,
   size: Size(300, 80),
   waveformType: WaveformType.long,
 )
@@ -1134,7 +1134,7 @@ final waveformData = await playerController.waveformExtraction
 
 // Later, use the cached data
 AudioFileWaveforms(
-  controller: playerController,
+  playerController: playerController,
   size: Size(300, 80),
   waveformData: waveformData, // Use precalculated data
 )
@@ -1173,7 +1173,7 @@ Control when waveforms are displayed during extraction:
 
 ```dart
 AudioFileWaveforms(
-  controller: playerController,
+  playerController: playerController,
   size: Size(300, 80),
   continuousWaveform: true, // Show waveforms as they're extracted
 )
@@ -1188,7 +1188,7 @@ Customize the appearance of playback waveforms:
 
 ```dart
 AudioFileWaveforms(
-  controller: playerController,
+  playerController: playerController,
   size: Size(MediaQuery.of(context).size.width, 100),
   playerWaveStyle: PlayerWaveStyle(
     fixedWaveColor: Colors.grey,
@@ -1215,7 +1215,7 @@ Apply gradients to playback waveforms:
 import 'dart:ui' as ui;
 
 AudioFileWaveforms(
-  controller: playerController,
+  playerController: playerController,
   size: Size(300, 100),
   playerWaveStyle: PlayerWaveStyle(
     fixedWaveGradient: ui.Gradient.linear(
@@ -1238,7 +1238,7 @@ Add visual feedback when scrolling waveforms:
 
 ```dart
 AudioFileWaveforms(
-  controller: playerController,
+  playerController: playerController,
   size: Size(300, 80),
   playerWaveStyle: PlayerWaveStyle(
     scrollScale: 1.3, // Scales waves by 30% when scrolling
@@ -1254,7 +1254,7 @@ Get notified about user interactions with waveforms:
 
 ```dart
 AudioFileWaveforms(
-  controller: playerController,
+  playerController: playerController,
   size: Size(300, 80),
   onTapUp: (details) {
     print('Tapped at: ${details.localPosition}');
@@ -1350,7 +1350,7 @@ Use the extracted waveform data directly in `AudioFileWaveforms`:
 ```dart
 AudioFileWaveforms(
   size: Size(300, 80),
-  controller: playerController,
+  playerController: playerController,
   waveformData: waveformData,
   playerWaveStyle: PlayerWaveStyle(
     fixedWaveColor: Colors.blue,
@@ -1414,7 +1414,7 @@ Here's a complete example of extracting and displaying waveforms:
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:audio_waveforms/audio_waveforms.dart';
+import 'package:audio_waveforms_gdx_plus/audio_waveforms_gdx_plus.dart';
 
 class WaveformExtractionScreen extends StatefulWidget {
   final String audioPath;
@@ -1549,7 +1549,7 @@ final cachedData = await loadWaveformData(audioPath);
 if (cachedData != null) {
   // Use cached data
   AudioFileWaveforms(
-  controller: playerController,
+  playerController: playerController,
   size: Size(300, 80),
   waveformData: cachedData,
   );
@@ -1831,7 +1831,7 @@ The `tapUpUpdateDetails` parameter has been renamed to `onTapUp` for better clar
 
 ```dart
 AudioFileWaveforms(
-  controller: playerController,
+  playerController: playerController,
   tapUpUpdateDetails: (details) {
     // Handle tap
   },
@@ -1842,7 +1842,7 @@ AudioFileWaveforms(
 
 ```dart
 AudioFileWaveforms(
-  controller: playerController,
+  playerController: playerController,
   onTapUp: (details) {
     // Handle tap
   },
@@ -1938,7 +1938,7 @@ We welcome feature requests! Please:
 - Explain why this feature would be useful to most users
 - Provide examples of how the feature would be used
 
-For more information about contributing, please check the [GitHub repository](https://github.com/SimformSolutionsPvtLtd/audio_waveforms).
+For more information about contributing, see the [GitHub repository](https://github.com/47gurvinder/audio_waveforms), [feature request form](https://github.com/47gurvinder/audio_waveforms/issues/new?template=feature_request.yml), and [Pull Requests](https://github.com/47gurvinder/audio_waveforms/pulls).
 
 # License
 
@@ -1965,4 +1965,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
-

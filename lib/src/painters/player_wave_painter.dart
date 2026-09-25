@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../audio_waveforms.dart';
+import '../../audio_waveforms_gdx_plus.dart';
 
 class PlayerWavePainter extends CustomPainter {
   PlayerWavePainter({

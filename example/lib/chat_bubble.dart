@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:audio_waveforms/audio_waveforms.dart';
+import 'package:audio_waveforms_gdx_plus/audio_waveforms_gdx_plus.dart';
 import 'package:flutter/material.dart';
 
 class ChatBubble extends StatelessWidget {
@@ -27,12 +27,17 @@ class ChatBubble extends StatelessWidget {
               if (isSender) const Spacer(),
               Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: isSender
-                        ? const Color(0xFF276bfd)
-                        : const Color(0xFF343145)),
+                  borderRadius: BorderRadius.circular(10),
+                  color: isSender
+                      ? const Color(0xFF276bfd)
+                      : const Color(0xFF343145),
+                ),
                 padding: const EdgeInsets.only(
-                    bottom: 9, top: 8, left: 14, right: 12),
+                  bottom: 9,
+                  top: 8,
+                  left: 14,
+                  right: 12,
+                ),
                 child: Text(
                   text,
                   style: const TextStyle(color: Colors.white, fontSize: 20),
@@ -91,8 +96,9 @@ class _WaveBubbleState extends State<WaveBubble> {
       controller.waveformExtraction
           .extractWaveformData(
             path: widget.path,
-            noOfSamples:
-                playerWaveStyle.getSamplesForWidth(widget.width ?? 200),
+            noOfSamples: playerWaveStyle.getSamplesForWidth(
+              widget.width ?? 200,
+            ),
           )
           .then((waveformData) => debugPrint(waveformData.toString()));
     }
@@ -145,8 +151,9 @@ class _WaveBubbleState extends State<WaveBubble> {
             AudioFileWaveforms(
               size: Size(MediaQuery.of(context).size.width / 2, 70),
               playerController: controller,
-              waveformType:
-                  widget.isSender ? WaveformType.long : WaveformType.fitWidth,
+              waveformType: widget.isSender
+                  ? WaveformType.long
+                  : WaveformType.fitWidth,
               playerWaveStyle: playerWaveStyle,
             ),
             if (widget.isSender) const SizedBox(width: 10),

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../audio_waveforms.dart';
+import '../audio_waveforms_gdx_plus.dart';
 import 'base/wave_clipper.dart';
 import 'painters/player_wave_painter.dart';
 
@@ -242,7 +242,7 @@ class _AudioFileWaveformsState extends State<AudioFileWaveforms>
           clipper: WaveClipper(extraClipperHeight: 0),
           child: RepaintBoundary(
             child: ValueListenableBuilder<int>(
-              builder: (_, __, ___) {
+              builder: (_, _, _) {
                 return CustomPaint(
                   isComplex: true,
                   painter: PlayerWavePainter(

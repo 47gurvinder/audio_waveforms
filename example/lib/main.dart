@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:audio_waveforms/audio_waveforms.dart';
-import 'package:audio_waveforms_example/chat_bubble.dart';
+import 'package:audio_waveforms_gdx_plus/audio_waveforms_gdx_plus.dart';
+import 'package:audio_waveforms_gdx_plus_example/chat_bubble.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -66,9 +66,9 @@ class _HomeState extends State<Home> {
   }
 
   void _pickFile() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles();
-    if (result != null && result.files.isNotEmpty) {
-      paths.add(result.files.first.path!);
+    final result = await FilePicker.pickFile();
+    if (result?.path != null) {
+      paths.add(result!.path!);
       setState(() {});
     } else {
       debugPrint("File not picked");
@@ -93,22 +93,14 @@ class _HomeState extends State<Home> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              'assets/images/logo.png',
-              scale: 1.5,
-            ),
+            Image.asset('assets/images/logo.png', scale: 1.5),
             const SizedBox(width: 10),
-            const Text(
-              'Simform',
-              style: TextStyle(color: Colors.white),
-            ),
+            const Text('Simform', style: TextStyle(color: Colors.white)),
           ],
         ),
       ),
       body: isLoading
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
+          ? const Center(child: CircularProgressIndicator())
           : SafeArea(
               child: Column(
                 children: [
@@ -134,8 +126,9 @@ class _HomeState extends State<Home> {
                               ? AudioWaveforms(
                                   enableGesture: true,
                                   size: Size(
-                                      MediaQuery.of(context).size.width / 2,
-                                      50),
+                                    MediaQuery.of(context).size.width / 2,
+                                    50,
+                                  ),
                                   recorderController: recorderController,
                                   waveStyle: const WaveStyle(
                                     waveColor: Colors.white,
@@ -148,7 +141,8 @@ class _HomeState extends State<Home> {
                                   ),
                                   padding: const EdgeInsets.only(left: 18),
                                   margin: const EdgeInsets.symmetric(
-                                      horizontal: 15),
+                                    horizontal: 15,
+                                  ),
                                 )
                               : Container(
                                   width:
@@ -160,15 +154,18 @@ class _HomeState extends State<Home> {
                                   ),
                                   padding: const EdgeInsets.only(left: 18),
                                   margin: const EdgeInsets.symmetric(
-                                      horizontal: 15),
+                                    horizontal: 15,
+                                  ),
                                   child: TextField(
                                     readOnly: true,
                                     decoration: InputDecoration(
                                       hintText: "Type Something...",
                                       hintStyle: const TextStyle(
-                                          color: Colors.white54),
-                                      contentPadding:
-                                          const EdgeInsets.only(top: 16),
+                                        color: Colors.white54,
+                                      ),
+                                      contentPadding: const EdgeInsets.only(
+                                        top: 16,
+                                      ),
                                       border: InputBorder.none,
                                       suffixIcon: IconButton(
                                         onPressed: _pickFile,

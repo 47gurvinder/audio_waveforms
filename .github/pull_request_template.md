@@ -22,7 +22,7 @@ relevant checkboxes with `[x]`. If some checkbox is not applicable, mark it as `
 
 ## Breaking Change?
 <!--
-Would your PR require audio_waveforms users to update their apps following your change?
+Would your PR require audio_waveforms_gdx_plus users to update their apps following your change?
 
 If yes, then the title of the PR should include "!" (for example, `feat!:`, `fix!:`). See
 [Conventional Commit] for details. Also, for a breaking PR uncomment and fill in the "Migration
@@ -45,5 +45,5 @@ Closes #1234
 !-->
 
 <!-- Links -->
-[Contributor Guide]: https://github.com/SimformSolutionsPvtLtd/audio_waveforms/blob/master/CONTRIBUTING.md
+[Contributor Guide]: https://github.com/47gurvinder/audio_waveforms/blob/main/CONTRIBUTING.md
 [Conventional Commit]: https://conventionalcommits.org

@@ -1,7 +1,11 @@
-## 2.1.0 (#unreleased)
+## 2.1.0
 
-- Feature [#468](https://github.com/SimformSolutionsPvtLtd/audio_waveforms/pull/468) - Add macOS support
-- Add Swift Package Manager support for iOS
+- Renamed the published Dart package to `audio_waveforms_gdx_plus` for the community-maintained release. Applications must update their dependency and `package:` imports.
+- Added macOS support with a minimum deployment target of macOS 10.14.
+- Added Swift Package Manager support for iOS.
+- Updated the minimum supported SDK versions to Flutter 3.44 and Dart 3.12.
+- Updated Android compatibility for Kotlin 2.4, AGP 9.1, and Gradle 9.3.1 while retaining Android API 21 as the plugin minimum SDK.
+- Migrated active maintenance, issue reporting, and releases to the community fork.
 
 ## 2.0.2
 
