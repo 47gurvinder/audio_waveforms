@@ -4,7 +4,8 @@
 - Added macOS support with a minimum deployment target of macOS 10.14.
 - Added Swift Package Manager support for iOS.
 - Updated the minimum supported SDK versions to Flutter 3.44 and Dart 3.12.
-- Updated Android compatibility for Kotlin 2.4, AGP 9.1, and Gradle 9.3.1 while retaining Android API 21 as the plugin minimum SDK.
+- Updated Android compatibility for Kotlin 2.4, AGP 9.1, and Gradle 9.6 while retaining Android API 21 as the plugin minimum SDK.
+- Migrated the Android plugin and example app to AGP's built-in Kotlin support.
 - Migrated active maintenance, issue reporting, and releases to the community fork.
 
 ## 2.0.2

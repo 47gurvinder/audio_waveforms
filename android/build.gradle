@@ -2,15 +2,13 @@ group 'com.simform.audio_waveforms'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '2.4.0'
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:9.1.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.android.tools.build:gradle:9.1.1'
     }
 }
 
@@ -23,16 +21,6 @@ rootProject.allprojects {
 
 apply plugin: 'com.android.library'
 
-// AGP 9+ provides Kotlin support unless the consuming app explicitly opts out.
-def agpMajor = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION.tokenize('.')[0] as int
-def builtInKotlin = providers.gradleProperty("android.builtInKotlin")
-        .map { it.toBoolean() }
-        .orElse(agpMajor >= 9)
-        .get()
-if (agpMajor < 9 || !builtInKotlin) {
-    apply plugin: 'kotlin-android'
-}
-
 android {
     if (project.android.hasProperty("namespace")) {
         namespace "com.simform.audio_waveforms"
@@ -43,10 +31,6 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
-    }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
     }
 
     defaultConfig {
